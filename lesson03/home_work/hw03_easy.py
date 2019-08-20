@@ -4,13 +4,10 @@
 # Округление должно происходить по математическим правилам (0.6 --> 1, 0.4 --> 0).
 # Для решения задачи не используйте встроенные функции и функции из модуля math.
 
-def my_round(number, ndigits):
-    pass
 
+my_round = lambda x, y: int(x * (10 ** y) + int(x * 10 ** (y + 1) % 10 >= 6)) / (10 ** y)
 
-print(my_round(2.1234567, 5))
-print(my_round(2.1999967, 5))
-print(my_round(2.9999967, 5))
+print(my_round(10.12356265, 6))
 
 
 # Задание-2:
@@ -20,7 +17,21 @@ print(my_round(2.9999967, 5))
 # !!!P.S.: функция не должна НИЧЕГО print'ить
 
 def lucky_ticket(ticket_number):
-    pass
+    count = 1
+    right = 0
+    left = 0
+    if len(str(ticket_number)) != 6:
+        return 'билет не шестизначный'
+    while count <= 6:
+        if count > 3:
+            left += int(ticket_number % 10)
+            ticket_number /= 10
+            count += 1
+        else:
+            right += int(ticket_number % 10)
+            ticket_number /= 10
+            count += 1
+    return left == right
 
 
 print(lucky_ticket(123006))
