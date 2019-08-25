@@ -4,7 +4,11 @@
 matrix = [[1, 0, 8],
           [3, 4, 1],
           [0, 4, 2]]
-          
+
+matrix_rotate = [[matrix[i][j] for i in range(len(matrix))] for j in range(len(matrix))]
+
+print(matrix_rotate)
+
 # Выполнить поворот (транспонирование) матрицы
 # Пример. Результат:
 # matrix_rotate = [[1, 3, 0],
@@ -39,7 +43,20 @@ number = """
 05886116467109405077541002256983155200055935729725
 71636269561882670428252483600823257530420752963450"""
 
-
+int_n = []
+for x in number:
+    if x != '\n':
+        int_n.append(int(x))
+max_mult = 0
+j = 0
+i = 0
+while i < len(int_n) - 4:
+    mult = int_n[i] * int_n[i + 1] * int_n[i + 2] * int_n[i + 3] * int_n[i + 4]
+    if mult > max_mult:
+        max_mult = mult
+        j = i
+    i += 1
+print(max_mult, j)
 # Задание-3 (Ферзи):
 # Известно, что на доске 8×8 можно расставить 8 ферзей так, чтобы они не били
 # друг друга. Вам дана расстановка 8 ферзей на доске.

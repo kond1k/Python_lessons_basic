@@ -5,10 +5,17 @@
 # Получить новый список, элементы которого будут
 # квадратами элементов исходного списка
 # [1, 2, 4, 0] --> [1, 4, 16, 0]
+list_simple = [1, 2, 4, 0]
+list_sq = [x ** 2 for x in list_simple]
+print(list_sq)
 
 # Задание-2:
 # Даны два списка фруктов.
 # Получить список фруктов, присутствующих в обоих исходных списках.
+list_fr1 = ['banana', 'orange', 'potato', 'cherry']
+list_fr2 = ['tomato', 'cherry', 'potato', 'strawberry']
+list_fr3 = [x for x in list_fr1 for y in list_fr2 if x == y]
+print(list_fr3)
 
 # Задание-3:
 # Дан список, заполненный произвольными числами.
@@ -16,3 +23,6 @@
 # + Элемент кратен 3
 # + Элемент положительный
 # + Элемент не кратен 4
+list_hw4 = [1, 2, 3, 4, 5, 6, 8, 9, 12, 16, -5, 0, 9, 15, 24, 30]
+list_format = [x for x in list_hw4 if not (x % 3) and x % 4 and x > 0]
+print(list_format)
